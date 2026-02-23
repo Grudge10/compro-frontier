@@ -17,6 +17,19 @@ public class Student {
         return age;
     }
 
+    // setter methods
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     // method that greets the student
     public void greet() {
         System.out.println("Hi");
