@@ -31,7 +31,7 @@ public class Main {
 
                 students.add(readStudent); // add the student into the arraylist
 
-                System.out.println(readStudent.getFullName());
+                System.out.println(readStudent.getFullName()); // print the student's full name
             }
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
