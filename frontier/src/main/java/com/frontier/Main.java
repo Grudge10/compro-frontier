@@ -1,13 +1,7 @@
 package com.frontier;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.util.*;
+import java.io.*;
 
 import com.frontier.model.Student;
 
@@ -16,16 +10,28 @@ public class Main {
         List<Student> students = new ArrayList<>();
         
         try(BufferedReader reader = new BufferedReader(new FileReader("data/students.csv"))) {
-            String line;
+            reader.readLine(); // read the header line
+            
+            String line; // create string to put data
+
+            // loop till there is no more data to be read
             while ((line = reader.readLine()) != null) {
-                String[] data = line.split(",");
+                String[] data = line.split(","); // split the different variables
 
-                Student readStudent = new Student();
-                readStudent.setFullName(data[0]);
-                readStudent.setAge(Integer.parseInt(data[1]));
-                readStudent.setCourse(data[2]);
+                Student readStudent = new Student(); // create an object for the line
+                readStudent.setFullName(data[0]); // set the full name
+                readStudent.setCourse(data[2]); // set the course
 
-                
+                // use try catch block for the parsing of integer
+                try{
+                    readStudent.setAge(Integer.parseInt(data[1].trim())); // set the age
+                } catch (InputMismatchException e) {
+                    e.getMessage();
+                }
+
+                students.add(readStudent); // add the student into the arraylist
+
+                System.out.println();
             }
         } catch (FileNotFoundException e) {
             e.getMessage();
