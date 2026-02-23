@@ -17,6 +17,7 @@ public class Main {
                 System.out.println(input.nextLine());
             }
 
+            input.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
