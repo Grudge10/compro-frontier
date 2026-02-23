@@ -25,8 +25,8 @@ public class Main {
                 // use try catch block for the parsing of integer
                 try{
                     readStudent.setAge(Integer.parseInt(data[1].trim())); // set the age
-                } catch (InputMismatchException e) {
-                    e.getMessage();
+                } catch (NumberFormatException e) {
+                    System.out.println(e.getMessage());
                 }
 
                 students.add(readStudent); // add the student into the arraylist
@@ -34,9 +34,9 @@ public class Main {
                 System.out.println(readStudent.getFullName());
             }
         } catch (FileNotFoundException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         } catch (IOException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
     }
 }
